@@ -12,7 +12,11 @@
 
     <body>
         <?php echo $__env->make('templates.menu-lateral', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-        <?php echo $__env->yieldContent('conteudo-view'); ?>
+
+        <section id="view-conteudo">
+            <?php echo $__env->yieldContent('conteudo-view'); ?>
+        </section>
+
         <?php echo $__env->yieldContent('js-view'); ?>
 
     </body>
