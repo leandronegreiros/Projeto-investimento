@@ -12,40 +12,19 @@ use App\Http\Requests\InstituitionUpdateRequest;
 use App\Repositories\InstituitionRepository;
 use App\Validators\InstituitionValidator;
 
-/**
- * Class InstituitionsController.
- *
- * @package namespace App\Http\Controllers;
- */
 class InstituitionsController extends Controller
 {
-    /**
-     * @var InstituitionRepository
-     */
+
     protected $repository;
 
-    /**
-     * @var InstituitionValidator
-     */
     protected $validator;
 
-    /**
-     * InstituitionsController constructor.
-     *
-     * @param InstituitionRepository $repository
-     * @param InstituitionValidator $validator
-     */
     public function __construct(InstituitionRepository $repository, InstituitionValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
@@ -61,15 +40,6 @@ class InstituitionsController extends Controller
         return view('instituitions.index', compact('instituitions'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  InstituitionCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
-     *
-     * @throws \Prettus\Validator\Exceptions\ValidatorException
-     */
     public function store(InstituitionCreateRequest $request)
     {
         try {
@@ -101,13 +71,6 @@ class InstituitionsController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $instituition = $this->repository->find($id);
@@ -122,13 +85,6 @@ class InstituitionsController extends Controller
         return view('instituitions.show', compact('instituition'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $instituition = $this->repository->find($id);
@@ -136,16 +92,6 @@ class InstituitionsController extends Controller
         return view('instituitions.edit', compact('instituition'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  InstituitionUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
-     *
-     * @throws \Prettus\Validator\Exceptions\ValidatorException
-     */
     public function update(InstituitionUpdateRequest $request, $id)
     {
         try {
@@ -179,14 +125,6 @@ class InstituitionsController extends Controller
         }
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $deleted = $this->repository->delete($id);
