@@ -13,7 +13,7 @@
             </a>
         </li>
         <li>
-            <a href="">
+            <a href="<?php echo e(route('group.index')); ?>">
                 <i class="fas fa-users"></i>
                 <h3>Grupos</h3>
             </a>
