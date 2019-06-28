@@ -51,10 +51,16 @@ class GroupService
     {
         try
         {
+            $group   = $this->repository->find($group_id);
+            $user_id = $data['user_id'];
+
+            $group->users()->attach($user_id);
+            dd($group->users);
+
             return [
                 'success' => true,
                 'messages' => "Usuário relacionado com sucesso!",
-                'data'    => null,
+                'data'    => $group,
             ];
         }
         catch(Exception $e)

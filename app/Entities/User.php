@@ -15,6 +15,12 @@ class User extends Authenticatable
     protected $fillable   = ['cpf', 'name', 'phone', 'birth', 'gender', 'notes', 'email', 'password', 'status', 'permission'];
     protected $hidden     = ['password', 'remember_token'];
 
+    public function groups()
+    {
+        //RELACIONAMENTO N:N
+        return $this->bolongsToMany(Group::class, 'user_groups');
+    }
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = env('PASSWORD_HASH') ? bcrypt($value): $value;

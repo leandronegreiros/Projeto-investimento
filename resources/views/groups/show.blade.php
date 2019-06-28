@@ -18,5 +18,6 @@
         @include('templates.formulario.submit', ['input' => 'Relacionar ao Grupo: '.$group->name])
     {!! Form::close() !!}
 
+    @include('user.list', ['user_list' => $group->users])
 
 @endsection
