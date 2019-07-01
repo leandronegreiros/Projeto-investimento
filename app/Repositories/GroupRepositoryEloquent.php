@@ -44,5 +44,5 @@ class GroupRepositoryEloquent extends BaseRepository implements GroupRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
 }

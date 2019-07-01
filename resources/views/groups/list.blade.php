@@ -15,7 +15,7 @@
                     <td>{{ $group->id }}</td>
                     <td>{{ $group->name }}</td>
                     <td>{{ $group->instituition->name }}</td>
-                    <td>{{ $group->owner->name}}</td>
+                    <td>{{ $group->owner ? $group->owner->name : "não existe"}}</td>
                     <td>
                         {!! Form::open(['route' => ['group.destroy', $group->id], 'method' => 'DELETE']) !!}
                         {!! Form::submit('Remover') !!}
