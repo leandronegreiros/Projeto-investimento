@@ -54,6 +54,7 @@ class GroupService
             $group   = $this->repository->find($group_id);
             $user_id = $data['user_id'];
 
+            //pegar o obj grupo e insere no relacionamento n:n com uma entreda com o id o user e o grupo
             $group->users()->attach($user_id);
             // dd($group->users);
 

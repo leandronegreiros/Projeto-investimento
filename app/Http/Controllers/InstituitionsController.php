@@ -106,8 +106,8 @@ class InstituitionsController extends Controller
 
     public function destroy($id)
     {
-        $deleted = $this->repository->delete($id);
-        return redirect()->route('instituitions.index');
 
+        $deleted = $this->repository->delete($id);
+        return redirect()->route('instituition.index');
     }
 }

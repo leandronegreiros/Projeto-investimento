@@ -15,6 +15,7 @@ use App\Repositories\GroupRepository;
 use App\Validators\GroupValidator;
 use App\Services\GroupService;
 use App\Http\Requests;
+use App\Repositories\UserRepositoryEloquent;
 
 class GroupsController extends Controller
 {
@@ -24,7 +25,7 @@ class GroupsController extends Controller
     protected $validator;
     protected $service;
 
-    public function __construct(GroupRepository $repository, InstituitionRepositoryEloquent $userRepository, GroupValidator $validator, GroupService $service, InstituitionRepository $instituitionRepository)
+    public function __construct(GroupRepository $repository, UserRepositoryEloquent $userRepository, GroupValidator $validator, GroupService $service, InstituitionRepository $instituitionRepository)
     {
         $this->instituitionRepository = $instituitionRepository;
         $this->userRepository         = $userRepository;
@@ -39,6 +40,8 @@ class GroupsController extends Controller
         //$user_list         = \App\Entities\User::pluck('name', 'id')->all();
         $user_list         = $this->userRepository->selectBoxList();
         $instituition_list = $this->instituitionRepository->selectBoxList();
+
+        // dd($user_list);
 
         return view('groups.index', [
             'groups'            => $groups,
@@ -79,9 +82,10 @@ class GroupsController extends Controller
         // $user_list = \App\Entities\User::pluck('name', 'id')->all();
         $user_list = $this->userRepository->selectBoxList();
 
+
         return view('groups.show', [
             'group'     => $group,
-            'user_list' => $user_list
+            'user_list' => $user_list,
         ]);
     }
 

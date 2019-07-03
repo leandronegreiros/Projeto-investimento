@@ -16,6 +16,7 @@ class Instituition extends Model implements Transformable
 
     public function groups()
     {
+        //1:n
         return $this->hasMany(Group::class);
     }
 }
