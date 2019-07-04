@@ -9,13 +9,14 @@ use Prettus\Validator\Exceptions\ValidatorException;
 use App\Repositories\InstituitionRepositoryEloquent;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use App\Repositories\InstituitionRepository;
+use App\Repositories\UserRepositoryEloquent;
 use App\Http\Requests\GroupCreateRequest;
 use App\Http\Requests\GroupUpdateRequest;
 use App\Repositories\GroupRepository;
 use App\Validators\GroupValidator;
 use App\Services\GroupService;
+use App\Entities\Group;
 use App\Http\Requests;
-use App\Repositories\UserRepositoryEloquent;
 
 class GroupsController extends Controller
 {
@@ -91,7 +92,8 @@ class GroupsController extends Controller
 
     public function edit($id)
     {
-        $group = $this->repository->find($id);
+        $group     = Group::find($id);
+        $user_list = $this->userRepository->selectBoxList();
 
         return view('groups.edit', compact('group'));
     }

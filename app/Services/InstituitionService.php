@@ -21,12 +21,36 @@ class InstituitionService
     {
         try
         {
-            $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_UPDATE);
+            $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
             $instituition = $this->repository->create($data);
 
             return [
                 'success' => true,
                 'messages' => "Instituição cadastrada",
+                'data'    => $instituition,
+            ];
+        }
+        catch(Exception $e)
+        {
+            switch(get_class($e))
+            {
+                case QueryException::class     : return ['success' => false, 'messages' =>  $e->getMessage()];
+                case ValidatorException::class : return ['success' => false, 'messages' =>  $e->getMessageBag()];
+                case Exception::class          : return ['success' => false, 'messages' =>  $e->getMessage()];
+                default                        : return ['success' => false, 'messages' =>  $e->getMessage()];
+            }
+        }
+    }
+
+    public function update(array $data, $id){
+        try
+        {
+            $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_UPDATE);
+            $instituition = $this->repository->update($data, $id);
+
+            return [
+                'success' => true,
+                'messages' => "Instituição atualizada",
                 'data'    => $instituition,
             ];
         }
