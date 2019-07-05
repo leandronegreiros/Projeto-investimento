@@ -18,6 +18,12 @@
                 <h3>Grupos</h3>
             </a>
         </li>
+        <li>
+            <a href="<?php echo e(route('moviment.application')); ?>">
+                <i class="fas fa-money"></i>
+                <h3>Investir</h3>
+            </a>
+        </li>
     <ul>
 </nav>
 <?php /**PATH /var/www/projeto-investimento/resources/views/templates/menu-lateral.blade.php ENDPATH**/ ?>
