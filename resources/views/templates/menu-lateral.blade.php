@@ -24,5 +24,17 @@
                 <h3>Investir</h3>
             </a>
         </li>
+        <li>
+            <a href="{{ route('moviment.index') }}">
+                <i class="fas fa-dollar-sign"></i>
+                <h3>Aplicações</h3>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('moviment.all') }}">
+                <i class="fas fa-dollar-sign"></i>
+                <h3>Extrato</h3>
+            </a>
+        </li>
     <ul>
 </nav>

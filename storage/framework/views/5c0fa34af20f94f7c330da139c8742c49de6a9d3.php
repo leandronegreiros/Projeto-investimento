@@ -24,6 +24,18 @@
                 <h3>Investir</h3>
             </a>
         </li>
+        <li>
+            <a href="<?php echo e(route('moviment.index')); ?>">
+                <i class="fas fa-dollar-sign"></i>
+                <h3>Aplicações</h3>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo e(route('moviment.all')); ?>">
+                <i class="fas fa-dollar-sign"></i>
+                <h3>Extrato</h3>
+            </a>
+        </li>
     <ul>
 </nav>
 <?php /**PATH /var/www/projeto-investimento/resources/views/templates/menu-lateral.blade.php ENDPATH**/ ?>

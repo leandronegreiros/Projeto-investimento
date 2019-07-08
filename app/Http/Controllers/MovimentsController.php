@@ -19,6 +19,13 @@ class MovimentsController extends Controller
     protected $repository;
     protected $validator;
 
+    public function index()
+    {
+        return view('moviment.index', [
+            'product_list' => Product::all(),
+        ]);
+    }
+
     public function __construct(MovimentRepository $repository, MovimentValidator $validator)
     {
         $this->repository = $repository;
@@ -57,5 +64,14 @@ class MovimentsController extends Controller
 
         return redirect()->route('moviment.application');
 
+    }
+
+    public function all()
+    {
+        $moviment_list = Auth::user()->moviments;
+
+        return view('moviment.all', [
+            'moviment_list' => $moviment_list,
+        ]);
     }
 }

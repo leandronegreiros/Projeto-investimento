@@ -3,6 +3,7 @@
             <tr>
                 <td>#</td>
                 <td>Nome do Grupo</td>
+                <td>Total</td>
                 <td>Instituição</td>
                 <td>Nome do Resposnsável</td>
                 <td>Opções </td>
@@ -14,6 +15,7 @@
                 <tr>
                     <td>{{ $group->id }}</td>
                     <td>{{ $group->name }}</td>
+                    <td>R$ {{ number_format( $group->total_value, 2, ',', '.')}}</td>
                     <td>{{ $group->instituition->name }}</td>
                     <td>{{ $group->owner ? $group->owner->name : "não existe"}}</td>
                     <td>
