@@ -35,7 +35,8 @@ class ProductsController extends Controller
 
     public function store(Request $request, $instituition_id)
     {
-        try {
+        try
+        {
             $data = $request->all();
             $data['instituition_id'] = $instituition_id;
 

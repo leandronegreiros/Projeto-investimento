@@ -20,7 +20,7 @@
         </li>
         <li>
             <a href="{{ route('moviment.application') }}">
-                <i class="fas fa-money"></i>
+                <i class="far fa-money-bill-alt"></i>
                 <h3>Investir</h3>
             </a>
         </li>

@@ -15,10 +15,10 @@ class User extends Authenticatable
     protected $fillable   = ['cpf', 'name', 'phone', 'birth', 'gender', 'notes', 'email', 'password', 'status', 'permission'];
     protected $hidden     = ['password', 'remember_token'];
 
+    //RELACIONAMENTO N:N
     public function groups()
     {
-        //RELACIONAMENTO N:N
-        return $this->bolongsToMany(Group::class, 'user_groups');
+        return $this->belongsToMany(Group::class, 'user_groups');
     }
 
     public function setPasswordAttribute($value)
